@@ -1,11 +1,11 @@
 ﻿@page
-@model WebApp.Pages.Empleado.GridModel
+@model WebApp.Pages.TipoIdentificacion.GridModel
 @{
 }
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            Empleado
+            Tipo Identificacion
         </div>
         <div class="card-body">
             <a class="btn btn-primary" asp-page="Edit">
@@ -17,13 +17,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Primer Apellido</th>
-                                <th>Segundo Apellido</th>
-                                <th>Edad</th>
-                                <th>Fecha Nacimiento</th>
-                                <th>Tipo Identificacion</th>
-                                <th>Identificacion</th>
+                                <th>Descripcion</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
@@ -31,18 +25,12 @@
                             @foreach (var item in Model.GridList)
                             {
                             <tr>
-                                <td>@item.IdEmpleado</td>
-                                <td>@item.Nombre</td>
-                                <td>@item.PrimerApellido</td>
-                                <td>@item.SegundoApellido</td>
-                                <td>@item.Edad</td>
-                                <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
                                 <td>@item.IdTipoIdentificacion</td>
-                                <td>@item.Identificacion</td>
+                                <td>@item.Descripcion</td>
                                 <td>
-                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdEmpleado"><i class='bx bx-edit-alt'></i></a>
+                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdTipoIdentificacion"><i class='bx bx-edit-alt'></i></a>
 
-                                    <button type="button" class="btn btn-danger" onclick="EmpleadoGrid.OnClickEliminar(@item.IdEmpleado)"><i class='bx bx-trash'></i></button>
+                                    <button type="button" class="btn btn-danger" onclick="TI_Grid.OnClickEliminar(@item.IdTipoIdentificacion)"><i class='bx bx-trash'></i></button>
                                 </td>
                             </tr>
                             }
@@ -59,5 +47,5 @@
         var MensajeApp = "@Html.Raw(Model.Mensaje)";
     </script>
 
-    <script defer src="~/App/Empleado/Grid.js"></script>
+    <script defer src="~/App/TipoIdentificacion/Grid.js"></script>
 }
